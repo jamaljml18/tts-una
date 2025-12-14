@@ -1,8 +1,10 @@
 from flask import Flask, request, send_file
 from gtts import gTTS
+from flask_cors import CORS
 import io
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/api/tts', methods=['POST'])
 def tts_handler():
@@ -36,4 +38,5 @@ def tts_handler():
 
 # Entry point untuk Vercel
 if __name__ == '__main__':
+
     app.run()
